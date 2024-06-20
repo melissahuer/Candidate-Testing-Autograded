@@ -41,12 +41,12 @@ function gradeQuiz(candidateAnswers) {
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   let answersCorrect = 0;
   for (let i=0; i < candidateAnswers.length; i++){
-    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
-
-    answersCorrect = answersCorrect + 1;
-    } //else {
+    if (correctAnswers[i].toLowerCase().includes(candidateAnswers[i].toLowerCase())){
+    answersCorrect++;
+    } else {
+      answersCorrect;
      // console.log("That is not correct");
-    //}
+    }
 }
 
 let grade = (answersCorrect/questions.length) * 100;
