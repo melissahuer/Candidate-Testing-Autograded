@@ -36,7 +36,7 @@ for (let i=0; i<questions.length; i++){
 function gradeQuiz(candidateAnswers){
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
  
-  // if (correctAnswers === candidateAnswers){
+  //  if (correctAnswers === candidateAnswers){
   //   console.log(`Your answer "${candidateAnswers}" is correct!`);
   // }
   // if (candidateAnswers !== correctAnswers){
@@ -44,14 +44,6 @@ function gradeQuiz(candidateAnswers){
   // }
 
 let answersCorrect = 0;
-
-// if (typeof correctAnswers[i] === "string"){
-//   let newCorrectAnswers = correctAnswers.toLowerCase();
-// }
-
-// if (typeof candidateAnswers[i] === "string"){
-//   let newCandidateAnswers = candidateAnswers.toLowerCase();
-// }
 
 for (let i = 0; i<candidateAnswers.length; i++){
   if (correctAnswers[i].toLowerCase().includes(candidateAnswers[i].toLowerCase())){
