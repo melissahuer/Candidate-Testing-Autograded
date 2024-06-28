@@ -5,9 +5,9 @@ const input = require('readline-sync');
 // TODO 1.1a: Define candidateName // 
 let candidateName = "";
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
-let question = ("Who was the first American woman in space? ");
-let correctAnswer = ("Sally Ride");
-let candidateAnswer = ("");
+let question = "Who was the first American woman in space? ";
+let correctAnswer = "Sally Ride";
+let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
@@ -30,8 +30,6 @@ for (let i=0; i<questions.length; i++){
   console.log(`Your answer: ${candidateAnswers[i]}`);
   console.log(`Correct answer: ${correctAnswers[i]}`);
   console.log("                                       ");
-  // console.log("Your answer: " + candidateAnswer);
-  // console.log("Correct answer: " + correctAnswers[i]); 
 }
 }
 
@@ -45,7 +43,35 @@ function gradeQuiz(candidateAnswers){
   //   console.log(`Your answer "${candidateAnswers}" is incorrect! The correct answer is ${correctAnswers}`);
   // }
 
-  let grade; ////TODO 3.2 use this variable to calculate the candidates score.
+let answersCorrect = 0;
+
+// if (typeof correctAnswers[i] === "string"){
+//   let newCorrectAnswers = correctAnswers.toLowerCase();
+// }
+
+// if (typeof candidateAnswers[i] === "string"){
+//   let newCandidateAnswers = candidateAnswers.toLowerCase();
+// }
+
+for (let i = 0; i<candidateAnswers.length; i++){
+  if (correctAnswers[i].toLowerCase().includes(candidateAnswers[i].toLowerCase())){
+    answersCorrect++
+  }else{
+    answersCorrect;
+    //console.log("That is not correct");
+  }
+}
+ ////TODO 3.2 use this variable to calculate the candidates score.
+  let grade = (answersCorrect/questions.length)*100;
+  console.log(`>>> Overall Grade: ${grade}% (${answersCorrect} of ${questions.length} responses correct) <<<`);
+
+  if (grade >= 80){
+    console.log(">>> Status: Passed <<<");
+  }else{
+    console.log(">>> Status: Failed <<<");
+  }
+  
+ //let grade = ((number of Correct Answers)/(Number of Quiz Questions))*100 
 
   return grade;
 }
@@ -53,7 +79,7 @@ function gradeQuiz(candidateAnswers){
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Greetings candidate: " + candidateName);
+   console.log(`Candidate Name: ${candidateName}`);
   askQuestion();
   gradeQuiz(this.correctAnswers);
 }
